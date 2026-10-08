@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($usuario && password_verify($password, $usuario['password'])) {
                 $_SESSION['usuario_id']     = $usuario['id_comprador'];
                 $_SESSION['usuario_nombre'] = $usuario['nombre'];
+                $_SESSION['rol']            = 'comprador';
 
                 header('Location: index.php');
                 exit;
@@ -60,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form action="login.php" method="POST">
         <div>
-            <label for="email">Correo electrónico:</label><br>
+            <label for="email">Correo institucional:</label><br>
             <input type="email" id="email" name="email" required>
        
         </div>

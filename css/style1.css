@@ -433,3 +433,8 @@ input[type="password"] {
     height: 16px;
     accent-color: var(--yellow-dark); /* Combina con la paleta de color */
 }
+
+img {
+width: 50px;
+height: 50px;
+}
