@@ -37,16 +37,23 @@ $telefono_limpio = preg_replace('/[^0-9]/', '', $articulo['telefono'] ?? '');
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($articulo['titulo']); ?> - Secret Garden</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styledetalleA.css?v=<?php echo filemtime('css/stylepublicararticulo.css'); ?>">
+    <link rel="icon" type="image/jpeg" href="img/LogoSg.jpeg">
 
 </head>
 <body>
 
-    <header>
-        <h1>Secret Garden</h1>
+<header>
+        <div class="header-logo">
+            <img src="img/LogoSg.jpeg" alt="Logo Secret Garden" class="logo-titulo">
+            <h1>Secret Garden</h1>
+            <div class="user-session">
+            <button id="theme-toggle" class="btn-theme" type="button">🌙 Modo Oscuro</button></div>
+        </div>
         <a href="index.php">← Volver a la Tienda</a>
-    </header>
+</header>
 
     <main class="detalle-container">
         <div class="detalle-imagen">
@@ -56,7 +63,7 @@ $telefono_limpio = preg_replace('/[^0-9]/', '', $articulo['telefono'] ?? '');
 
         <div class="detalle-info">
             <h2><?php echo htmlspecialchars($articulo['titulo']); ?></h2>
-            <h3>Precio: $<?php echo number_format($articulo['precio'], 2); ?></h3>
+            <h3>Precio: $<?php echo number_format($articulo['precio'], 0, '.', ','); ?> (COP)</h3>
             <p><strong>Stock disponible:</strong> <?php echo $articulo['stock']; ?> unidades</p>
             <p><strong>Descripción del Producto:</strong></p>
             <p><?php echo nl2br(htmlspecialchars($articulo['descripcion'])); ?></p>
@@ -95,6 +102,7 @@ $telefono_limpio = preg_replace('/[^0-9]/', '', $articulo['telefono'] ?? '');
             </div>
         </div>
     </main>
-
+    
+    <script src="js/detalle.js"></script>
 </body>
 </html>

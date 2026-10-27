@@ -61,12 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style2.css?v=<?php echo filemtime('css/style2.css'); ?>">
+    <link rel="icon" type="image/jpeg" href="img/LogoSg.jpeg">
 </head>
 <body>
-    <div id="bubbles-container"></div>
+    <div class="titulo-con-logo">
+    <img src="img/LogoSg.jpeg" alt="Logo Secret Garden" class="logo-titulo">
     <h1>Crear Cuenta</h1>
+    </div>
 
     <?php if (!empty($mensaje)): ?>
         <p><?php echo $mensaje; ?></p>
@@ -74,12 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form action="registro.php" method="POST">
         <div>
-            <label for="nombre">Nombre completo:</label><br>
+            <label for="nombre">👤 Nombre completo:</label><br>
             <input type="text" id="nombre" name="nombre" required>
         </div>
         <br>
         <div>
-            <label for="email">Correo electrónico:</label><br>
+            <label for="email">✉️ Correo electrónico:</label><br>
             <!-- Se añade pattern y title para la validación en el cliente -->
             <input 
                 type="email" 
@@ -93,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <br>
         <div>
-            <label for="password">Contraseña:</label><br>
+            <label for="password">🔒 Contraseña:</label><br>
             <input 
                 type="password" 
                 id="password" 

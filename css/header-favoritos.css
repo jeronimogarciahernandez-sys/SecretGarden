@@ -1,0 +1,42 @@
+/* ==========================================================
+   ESTILOS ESPECÍFICOS PARA LA CABECERA DE FAVORITOS
+   ========================================================== */
+
+/* Permitir que el header reaccione a las variables de Modo Oscuro */
+header {
+  background-color: var(--bg-header-cream);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Forzar que el texto de bienvenida y enlaces mantengan el contraste correcto */
+.user-session {
+  color: var(--color-text-main);
+}
+
+.user-session span {
+  color: var(--color-text-main);
+}
+
+/* Estilo unificado para el botón de tema únicamente en Favoritos */
+.user-session .btn-theme {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-light);
+  color: var(--color-text-main);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+/* Adaptación del botón cuando la página entra en Modo Oscuro */
+body.dark-mode .user-session .btn-theme {
+  background-color: var(--card-white);
+  color: var(--color-text-main);
+  border-color: var(--border-light);
+}
+
+body.dark-mode .user-session .btn-theme:hover {
+  background-color: var(--color-gold-brown);
+  color: #ffffff;
+}

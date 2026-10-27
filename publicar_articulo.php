@@ -75,51 +75,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Publicar Nuevo Artículo</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Nuevo Artículo - Secret Garden</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/stylepublicararticulo.css?v=<?php echo filemtime('css/stylepublicararticulo.css'); ?>">
+    <link rel="icon" type="image/jpeg" href="img/LogoSg.jpeg">
 </head>
 <body>
     <div id="bubbles-container"></div>
-    <h1>Publicar Nuevo Artículo</h1>
+
+    <!-- Encabezado con Logo y Título unificados -->
+    <div class="titulo-con-logo">
+        <img src="img/LogoSg.jpeg" alt="Logo Secret Garden" class="logo-titulo">
+        <h1>Publicar Nuevo Artículo</h1>
+    </div>
 
     <?php if (!empty($mensaje)): ?>
-        <p <?php echo ($tipo_mensaje === 'exito') ?>>
+        <p class="<?php echo ($tipo_mensaje === 'exito') ? 'exito-msg' : 'error-msg'; ?>">
             <?php echo htmlspecialchars($mensaje); ?>
         </p>
     <?php endif; ?>
 
-    <!-- IMPORTANTE: enctype="multipart/form-data" para subir archivos -->
     <form action="publicar_articulo.php" method="POST" enctype="multipart/form-data">
+                    <div class="header-theme-container">
+        <button id="theme-toggle" class="btn-theme" type="button">🌙 Modo Oscuro</button>
+            </div>
         <div>
-            <label for="titulo">Título del Artículo:</label><br>
+            <label for="titulo">Título del Artículo:</label>
             <input type="text" id="titulo" name="titulo" required>
         </div>
-        <br>
+
         <div>
-            <label for="descripcion">Descripción:</label><br>
+            <label for="descripcion">Descripción:</label>
             <textarea id="descripcion" name="descripcion" rows="4"></textarea>
         </div>
-        <br>
+
         <div>
-            <label for="precio">Precio ($):</label><br>
-            <input type="number" id="precio" name="precio" step="0.01" min="0.01" required>
+            <label for="precio">Precio ($ COP):</label>
+            <input type="number" id="precio" name="precio" step="1" min="1" placeholder="Ej. 25000" required>
         </div>
-        <br>
         <div>
-            <label for="stock">Cantidad disponible (Stock):</label><br>
+            <label for="stock">Cantidad disponible:</label>
             <input type="number" id="stock" name="stock" min="1" value="1" required>
         </div>
-        <br>
+
         <div>
-            <label for="imagen">Imagen del producto:</label><br>
+            <label for="imagen">Imagen del producto:</label>
             <input type="file" id="imagen" name="imagen" accept="image/*">
         </div>
-        <br>
+
         <button type="submit">Publicar Artículo</button>
     </form>
 
-    <br>
-    <p><a href="panel_vendedor.php">Volver al Panel de Vendedor</a> | <a href="index.php">Ir a la Tienda</a></p>
-    <script src="js/script.js"></script>
+    <!-- Enlaces inferiores con el estilo unificado -->
+    <p>
+        <a href="panel_vendedor.php">Volver al Panel de Vendedor</a> | 
+        <a href="index.php">Ir a la Tienda</a>
+    </p>
+
+    <script src="js/script1.js"></script>
+    <script src="js/detalle.js"></script>
 </body>
 </html>

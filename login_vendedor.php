@@ -47,25 +47,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Vendedores</title>
     <link rel="stylesheet" href="css/style1.css">
+    <link rel="icon" type="image/jpeg" href="img/LogoSg.jpeg">
 </head>
 <body>
     <div id="bubbles-container"></div>
-    <h1>Iniciar Sesión (Vendedor)</h1>
+    
+    <div class="titulo-con-logo">
+        <img src="img/LogoSg.jpeg" alt="Logo Secret Garden" class="logo-titulo">
+        <h1>Iniciar Sesión (Vendedor)</h1>
+    </div>
 
     <?php if (!empty($mensaje)): ?>
-        <p style="color: red;"><?php echo $mensaje; ?></p>
+        <p class="mensaje-error"><?php echo htmlspecialchars($mensaje); ?></p>
     <?php endif; ?>
 
     <form action="login_vendedor.php" method="POST">
         <div>
-            <label for="email">Correo institucional:</label><br>
+            <label for="email">✉️ Correo institucional:</label><br>
             <input type="email" id="email" name="email" required>
         </div>
         <br>
         <div>
-            <label for="password">Contraseña:</label><br>
+            <label for="password">🔒 Contraseña:</label><br>
             <input type="password" id="password" name="password" required>
             <br>
             <label class="toggle-password-label">
@@ -74,14 +80,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </label>
         </div>
         <br>
+
+        <!-- Enlace para recuperar contraseña (apunta al mismo flujo general) -->
+        <div class="contenedor-olvido">
+            <a href="recuperar_password.php" class="link-olvido">¿Olvidaste tu contraseña?</a>
+        </div>
+        <br>
+
         <button type="submit">Ingresar al Panel</button>
     </form>
 
     <br>
     <p>¿Quieres vender y no tienes cuenta? <a href="registro_vendedor.php">Regístrate como Vendedor aquí</a></p>
-    <p><a href="index.php">
-        <img src="img/WhatsApp Image 2026-09-08 at 2.28.42 PM.jpeg" alt="Volver a la página principal">
-    </a></p>
 
     <script src="js/script1.js"></script>
 </body>

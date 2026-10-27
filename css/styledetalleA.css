@@ -1,0 +1,248 @@
+/* --- VISTA DE DETALLE DEL PRODUCTO (DETALLE_ARTICULO.PHP) --- */
+
+/* Reset de márgenes globales y control del desbordamiento horizontal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Definición de Variables (Modo Claro por defecto) */
+:root {
+    --bg-header: #fff4d9;
+    --border-header: #ebdcb9;
+    --bg-body: #faf7f0;
+    --bg-card: #ffffff;
+    --color-text-main: #2b2b2b;
+    --color-text-muted: #555555;
+    --color-accent: #a08020;
+    --color-accent-hover: #866a17;
+    --border-light: #ebdcb9;
+    --shadow-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Variables para Modo Oscuro */
+body.dark-mode {
+    --bg-header: #28241a;
+    --border-header: #443c28;
+    --bg-body: #1a1814;
+    --bg-card: #24221c;
+    --color-text-main: #f1f1f1;
+    --color-text-muted: #b0b0b0;
+    --color-accent: #d4af37;
+    --color-accent-hover: #b59328;
+    --border-light: #443c28;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 1. Fondo general de la página */
+body {
+    background-color: var(--bg-body);
+    color: var(--color-text-main);
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 2. Cabecera */
+header {
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--border-header);
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Contenedor del logo y el título */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-logo .logo-titulo {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+header h1 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin: 0;
+    line-height: 1;
+}
+
+/* Enlace "Volver a la Tienda" */
+header a[href*="index"] {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+header a[href*="index"]:hover {
+    text-decoration: underline;
+}
+
+/* Botón Tema Oscuro */
+.btn-theme {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-light);
+    color: var(--color-text-main);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-theme:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 3. Contenedor Principal (Tarjeta centrada) */
+main {
+    max-width: 1000px;
+    width: 90%;
+    margin: 30px auto;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 4. Columna Izquierda: Imagen del producto */
+main img {
+    width: 380px;
+    max-width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px var(--shadow-color);
+    flex-shrink: 0;
+}
+
+/* 5. Columna Derecha: Detalles del Producto */
+main > div, main section, .info-producto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Título del artículo */
+main h2 {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 5px;
+    border: none;
+}
+
+/* Párrafos e información */
+main p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 4px;
+}
+
+main p strong {
+    color: var(--color-text-main);
+}
+
+/* Título "Información del Vendedor" */
+main h3, main h4 {
+    font-size: 1.15rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-light);
+}
+
+/* 6. Botones de Acción */
+main a[href*="chat"], main a[href*="responder_chat"], main a[href*="panel"] {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+main a[href*="chat"]:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* Botón de WhatsApp */
+main a[href*="wa.me"], main a[href*="whatsapp"] {
+    background-color: #25d366;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+main a[href*="wa.me"]:hover, main a[href*="whatsapp"]:hover {
+    background-color: #1eb954;
+}
+
+/* Botón de Agregar a Favoritos */
+main form button {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+main form button:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    main img {
+        width: 100%;
+        height: auto;
+    }
+}

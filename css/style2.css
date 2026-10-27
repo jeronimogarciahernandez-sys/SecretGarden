@@ -420,8 +420,6 @@ br {
             background: none;
             border: none;
 }
-
-
 /* Asegura el cursor adecuado según el área */
 input[type="text"],
 input[type="email"],
@@ -459,4 +457,26 @@ input[type="password"] {
     width: 16px;
     height: 16px;
     accent-color: var(--yellow-dark); /* Combina con la paleta de color */
+}
+
+/* ALINEACIÓN DEL LOGO AL LADO DEL TÍTULO */
+.titulo-con-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.titulo-con-logo .logo-titulo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.titulo-con-logo h1 {
+  margin-bottom: 0;
 }

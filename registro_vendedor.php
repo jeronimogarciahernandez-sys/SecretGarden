@@ -60,70 +60,81 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Vendedores</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/styleregistroV.css?v=<?php echo filemtime('css/stylepublicararticulo.css'); ?>">
+    <link rel="icon" type="image/jpeg" href="img/LogoSg.jpeg">
 </head>
 <body>
     <div id="bubbles-container"></div>
-    <h1>Registro para Vendedores</h1>
 
-    <?php if (!empty($mensaje)): ?>
-        <p><?php echo $mensaje; ?></p>
-    <?php endif; ?>
+    <div class="card-container">
+        <div class="header-registro">
+            <div class="titulo-con-logo">
+                <img src="img/LogoSg.jpeg" alt="Logo Secret Garden" class="logo-titulo">
+                <h1>Registro para Vendedores</h1>
+            </div>
+        </div>
 
-    <form action="registro_vendedor.php" method="POST">
-        <div>
-            <label for="nombre">Nombre completo:</label><br>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
-        <br>
-        <div>
-            <label for="nombre_tienda">Nombre de tu Tienda / Jardín:</label><br>
-            <input type="text" id="nombre_tienda" name="nombre_tienda" placeholder="Ej. Jardín Encantado" required>
-        </div>
-        <br>
-        <div>
-            <label for="telefono">Teléfono / WhatsApp de contacto:</label><br>
-            <input type="text" id="telefono" name="telefono">
-        </div>
-        <br>
-        <div>
-            <label for="email">Correo electrónico institucional:</label><br>
-            <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                placeholder="vendedor@inemjose.edu.co"
-                pattern=".+@inemjose\.edu.co$"
-                title="Debes ingresar el correo institucional @inemjose.edu.co"
-                required
-            >
-        </div>
-        <br>
-        <div>
-            <label for="password">Contraseña:</label><br>
-            <input 
-                type="password" 
-                id="password" 
-                name="password" 
-                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,16}"
-                title="La contraseña debe tener entre 8 y 16 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial ($@$!%*?&)."
-                required
-            >
-            <br>
-            <label class="toggle-password-label">
-                <input type="checkbox" id="show-password" onclick="viewPassword()"> 
-                <span>Mostrar contraseña</span>
-            </label>
-        </div>
-        <br>
+        <?php if (!empty($mensaje)): ?>
+            <p class="mensaje"><?php echo $mensaje; ?></p>
+        <?php endif; ?>
 
-        <button type="submit">Registrarme como Vendedor</button>
-    </form>
+        <form action="registro_vendedor.php" method="POST">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="nombre">👤 Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
 
-    <br>
-    <p>¿Ya tienes una cuenta de vendedor? <a href="login_vendedor.php">Inicia Sesión aquí</a></p>
-    <p><a href="index.php">Volver a la tienda principal</a></p>
+                <div class="input-group">
+                    <label for="nombre_tienda">🏪 Nombre de tu Tienda / Jardín:</label>
+                    <input type="text" id="nombre_tienda" name="nombre_tienda" placeholder="Ej. Jardín Encantado" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefono">📞 Teléfono / WhatsApp de contacto:</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">✉️ Correo electrónico institucional:</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="vendedor@inemjose.edu.co"
+                        pattern=".+@inemjose\.edu.co$"
+                        title="Debes ingresar el correo institucional @inemjose.edu.co"
+                        required
+                    >
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="password">🔒 Contraseña:</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,16}"
+                        title="La contraseña debe tener entre 8 y 16 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial ($@$!%*?&)."
+                        required
+                    >
+                    <label class="toggle-password-label">
+                        <input type="checkbox" id="show-password" onclick="viewPassword()"> 
+                        <span>Mostrar contraseña</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit">Registrarme como Vendedor</button>
+        </form>
+
+        <div class="form-footer">
+            <p>¿Ya tienes una cuenta de vendedor? <a href="login_vendedor.php">Inicia Sesión aquí</a></p>
+            <p><a href="index.php">Volver a la tienda principal</a></p>
+        </div>
+    </div>
 
     <script src="js/script2.js"></script>
 </body>

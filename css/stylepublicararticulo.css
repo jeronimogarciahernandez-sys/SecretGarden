@@ -1,0 +1,297 @@
+/* Variables para Modo Claro y Modo Oscuro */
+:root {
+    --bg-body: #FDFBF7;
+    --card-bg: #FFFFFF;
+    --border-color: #E6DEC9;
+    --border-input: #D9CBB0;
+    --text-primary: #2D2926;
+    --text-title: #4A3C31;
+    --text-muted: #594F43;
+    --accent-color: #B3933F;
+    --accent-hover: #8E7230;
+    --input-bg: #FAFAFA;
+    --button-bg: #4A3C31;
+    --button-hover: #2D2926;
+    --button-text: #FFFFFF;
+    --error-bg: #FDEDED;
+    --error-text: #C0392B;
+    --error-border: #EED3D0;
+    --exito-bg: #E8F8F5;
+    --exito-text: #27AE60;
+    --exito-border: #A3E4D7;
+}
+
+body.dark-mode {
+    --bg-body: #1a1814;
+    --card-bg: #24221c;
+    --border-color: #443c28;
+    --border-input: #554a32;
+    --text-primary: #f1f1f1;
+    --text-title: #e6c875;
+    --text-muted: #b0b0b0;
+    --accent-color: #d4af37;
+    --accent-hover: #b59328;
+    --input-bg: #2d2a23;
+    --button-bg: #d4af37;
+    --button-hover: #b59328;
+    --button-text: #1a1814;
+    --error-bg: #3f1d1d;
+    --error-text: #f87171;
+    --error-border: #5c2424;
+    --exito-bg: #1b3e20;
+    --exito-text: #81c784;
+    --exito-border: #2e5933;
+}
+
+/* Configuración para permitir el desplazamiento completo */
+html {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-body);
+    border-left: 1px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-input);
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--bg-body);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-primary);
+    min-height: 100%;
+    height: auto;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Botón de cambio de tema */
+.header-theme-container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 550px;
+    margin: 0 auto 15px auto;
+}
+
+.btn-theme {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-theme:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor de burbujas decorativo de fondo */
+#bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ALINEACIÓN DE LOGO AL LADO DEL TÍTULO */
+.titulo-con-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.logo-titulo {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Título principal */
+h1 {
+    font-size: 1.8rem;
+    color: var(--text-title);
+    margin-bottom: 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Mensajes de error o alerta */
+.error-msg {
+    background-color: var(--error-bg);
+    color: var(--error-text) !important;
+    border: 1px solid var(--error-border);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin: 0 auto 20px auto;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Mensaje de éxito */
+.exito-msg {
+    background-color: var(--exito-bg);
+    color: var(--exito-text) !important;
+    border: 1px solid var(--exito-border);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin: 0 auto 20px auto;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Tarjeta contenedora del formulario */
+form {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 35px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Espaciados entre los campos del formulario */
+form div {
+    margin-bottom: 20px;
+}
+
+form div:last-of-type {
+    margin-bottom: 25px;
+}
+
+/* Etiquetas (Labels) */
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-title);
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* Campos de texto, números y textarea */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-input);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: var(--card-bg);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Input de archivo personalizado */
+input[type="file"] {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+/* Botón de Publicar Artículo */
+button[type="submit"] {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--button-hover);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Enlaces de navegación inferiores */
+p:has(a) {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+p a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+p a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    form {
+        padding: 20px;
+    }
+}

@@ -6,13 +6,11 @@ if (!isset($_SESSION['usuario_id']) || ($_SESSION['rol'] ?? '') !== 'vendedor') 
     header('Location: login_vendedor.php');
     exit;
 }
-
 $conexion_db = $conn ?? $conexion ?? $pdo ?? null;
 $id_vendedor = $_SESSION['usuario_id'];
 $id_articulo = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT) ?? filter_input(INPUT_POST, 'id_articulo', FILTER_VALIDATE_INT);
 
 $mensaje = '';
-
 if (!$id_articulo || !$conexion_db) {
     header('Location: panel_vendedor.php');
     exit;
@@ -78,12 +76,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Artículo - Secret Garden</title>
     <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/styleeditararticulo.css">
+    <link rel="icon" type="image/jpeg" href="img/LogoSg.jpeg">
 </head>
 <body>
-    <div id="bubbles-container"></div>
-    <h1>Editar Artículo</h1>
+
+    <div class="titulo-con-logo">
+        <img src="img/LogoSg.jpeg" alt="Logo Secret Garden" class="logo-titulo">
+        <h1>Editar Artículo</h1>
+
+
+    </div>
 
     <?php if (!empty($mensaje)): ?>
         <p style="color: red; font-weight: bold;"><?php echo htmlspecialchars($mensaje); ?></p>
@@ -92,38 +98,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form action="editar_articulo.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id_articulo" value="<?php echo $articulo['id_articulo']; ?>">
 
+                    <div class="header-theme-container">
+        <button id="theme-toggle" class="btn-theme" type="button">🌙 Modo Oscuro</button>
+            </div>
         <div>
-            <label for="titulo">Título del Artículo:</label><br>
+            <label for="titulo">Título del Artículo:</label>
             <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($articulo['titulo']); ?>" required>
         </div>
-        <br>
+
         <div>
-            <label for="descripcion">Descripción:</label><br>
+            <label for="descripcion">Descripción:</label>
             <textarea id="descripcion" name="descripcion" rows="4"><?php echo htmlspecialchars($articulo['descripcion']); ?></textarea>
         </div>
-        <br>
+
         <div>
-            <label for="precio">Precio ($):</label><br>
-            <input type="number" id="precio" name="precio" step="0.01" min="0.01" value="<?php echo $articulo['precio']; ?>" required>
+            <label for="precio">Precio ($ COP):</label>
+            <input type="number" id="precio" name="precio" step="1" min="1" value="<?php echo (int)$articulo['precio']; ?>" required>
         </div>
-        <br>
+
         <div>
-            <label for="stock">Cantidad disponible (Stock):</label><br>
+            <label for="stock">Cantidad disponible (Stock):</label>
             <input type="number" id="stock" name="stock" min="0" value="<?php echo $articulo['stock']; ?>" required>
         </div>
-        <br>
+
         <div>
-            <label>Imagen Actual:</label><br>
-            <img src="uploads/<?php echo htmlspecialchars($articulo['imagen'] ?? 'default.jpg'); ?>"><br><br>
-            <label for="imagen">Cambiar Imagen (opcional):</label><br>
+            <label>Imagen Actual:</label>
+            <img src="uploads/<?php echo htmlspecialchars($articulo['imagen'] ?? 'default.jpg'); ?>" alt="Imagen actual">
+            <label for="imagen">Cambiar Imagen (opcional):</label>
             <input type="file" id="imagen" name="imagen" accept="image/*">
         </div>
-        <br>
+
         <button type="submit">Guardar Cambios</button>
     </form>
 
-    <br>
     <p><a href="panel_vendedor.php">Cancelar y Volver al Panel</a></p>
+
     <script src="js/script1.js"></script>
+    <script src="js/detalle.js"></script>
 </body>
 </html>

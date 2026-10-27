@@ -1,7 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. MODO OSCURO CON PERSISTENCIA
+    const themeBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
 
-        const themeBtn = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
-
+    if (themeBtn) {
         if (currentTheme === 'dark') {
             document.body.classList.add('dark-mode');
             themeBtn.textContent = '☀️ Modo Claro';
@@ -20,19 +22,20 @@
             
             localStorage.setItem('theme', theme);
         });
+    }
 
+    // 2. CONTROL DEL MENÚ DESPLEGABLE
+    const texto = document.getElementById('miTexto');
+    const opciones = document.getElementById('misOpciones');
+    const contenedor = document.querySelector('.menu-container');
 
-// Control del menú desplegable
-const texto = document.getElementById('miTexto');
-const opciones = document.getElementById('misOpciones');
-const contenedor = document.querySelector('.menu-container');
+    if (texto && opciones && contenedor) {
+        texto.addEventListener('mouseenter', () => {
+            opciones.style.setProperty('display', 'block', 'important');
+        });
 
-if (texto && opciones && contenedor) {
-    texto.addEventListener('mouseenter', () => {
-        opciones.style.setProperty('display', 'block', 'important');
-    });
-
-    contenedor.addEventListener('mouseleave', () => {
-        opciones.style.setProperty('display', 'none', 'important');
-    });
-}
+        contenedor.addEventListener('mouseleave', () => {
+            opciones.style.setProperty('display', 'none', 'important');
+        });
+    }
+});

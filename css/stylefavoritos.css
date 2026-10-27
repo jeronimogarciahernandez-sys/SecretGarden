@@ -1,0 +1,150 @@
+/* ==========================================================
+   ESTILOS DE FAVORITOS (css/stylefavoritos.css)
+   Secret Garden - Vista de Mis Productos Favoritos
+   ========================================================== */
+
+/* 1. Desactivar el Grid global que style.css impone sobre <main> */
+main.favoritos-main {
+    display: block !important;
+    max-width: 1280px;
+    width: 92%;
+    margin: 30px auto 60px auto;
+}
+
+main.favoritos-main h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-gold-brown);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+/* 2. Definir la cuadrícula horizontal para el contenedor .fav-grid */
+.favoritos-main .fav-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)) !important;
+    gap: 22px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+}
+
+/* 3. Tarjeta Individual (.fav-card) */
+.fav-card {
+    background-color: var(--card-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.fav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Imagen del Producto */
+.fav-card img {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.fav-card a {
+    text-decoration: none;
+    color: var(--color-text-main);
+}
+
+.fav-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+    color: var(--color-text-main);
+    transition: color 0.2s ease;
+}
+
+.fav-card a:hover h3 {
+    color: var(--color-gold-brown);
+}
+
+.fav-card .precio {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin: 4px 0 2px 0;
+}
+
+.fav-card small {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* Acciones y Botones */
+.card-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-light);
+}
+
+.btn-detalles {
+    color: var(--color-gold-brown);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.btn-detalles:hover {
+    text-decoration: underline;
+}
+
+.fav-card form {
+    width: 100%;
+    margin: 0;
+}
+
+.btn-quitar-fav {
+    width: 100%;
+    background-color: #fce8e8;
+    color: #d32f2f;
+    border: 1px solid #f5c6c6;
+    padding: 8px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-quitar-fav:hover {
+    background-color: #f8d7d7;
+    border-color: #eeaeae;
+}
+
+/* Modo Oscuro */
+body.dark-mode .btn-quitar-fav {
+    background-color: #4a1c1c;
+    color: #ef9a9a;
+    border-color: #612727;
+}
+
+body.dark-mode .btn-quitar-fav:hover {
+    background-color: #5c2222;
+}

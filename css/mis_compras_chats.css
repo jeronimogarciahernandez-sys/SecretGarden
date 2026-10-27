@@ -1,0 +1,183 @@
+/* --- ESTILOS DE MIS COMPRAS Y CHATS (ALINEADO CON INDEX / STYLE.CSS) --- */
+
+.contenedor-compras {
+  max-width: 1280px;
+  width: 92%;
+  margin: 30px auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.titulo-seccion {
+  font-size: 1.35rem;
+  color: var(--color-gold-brown);
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 8px;
+}
+
+.sin-registros {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  background-color: var(--card-white);
+  border: 1px solid var(--border-light);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* --- TABLA DE HISTORIAL DE COMPRAS --- */
+.tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--card-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+}
+
+.tabla-pedidos {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.tabla-pedidos thead tr {
+  background-color: var(--bg-header-cream);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tabla-pedidos th {
+  padding: 14px 18px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  white-space: nowrap;
+}
+
+.tabla-pedidos td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--color-text-main);
+  vertical-align: middle;
+}
+
+.tabla-pedidos tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-pedidos tbody tr:hover {
+  background-color: rgba(160, 128, 32, 0.03);
+}
+
+.pedido-id {
+  font-weight: 700;
+  color: var(--color-gold-brown);
+}
+
+.precio-total {
+  font-weight: 700;
+}
+
+.estado-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.estado-badge.estado-completado {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+.estado-badge.estado-pendiente {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.btn-accion-chat {
+  display: inline-block;
+  background-color: var(--color-gold-brown);
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn-accion-chat:hover {
+  background-color: var(--color-gold-hover);
+}
+
+/* --- TARJETAS DE CONVERSACIONES CON VENDEDORES --- */
+.grid-chats-comprador {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.card-chat-comprador {
+  background-color: var(--card-white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-chat-comprador:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+}
+
+.info-chat h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.info-chat p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.badge-no-leidos {
+  display: inline-block;
+  background-color: #c93b3b;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.btn-ir-chat {
+  display: block;
+  text-align: center;
+  background-color: var(--color-gold-brown);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-top: auto;
+  transition: background-color 0.2s ease;
+}
+
+.btn-ir-chat:hover {
+  background-color: var(--color-gold-hover);
+}
